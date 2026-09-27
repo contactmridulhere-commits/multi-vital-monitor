@@ -6,6 +6,13 @@ sensor modules on a 320x240 SPI TFT.
 Measures heart rate two independent ways and cross-checks them, derives heart
 rate variability and respiration rate from the same signals, and reports
 temperature and relative alcohol response.
+
+<p align="center">
+  <img src="Image/Final%20working.jpeg" width="640" alt="The finished monitor showing heart rate, SpO2, temperature, alcohol response, HRV and a live ECG trace">
+</p>
+
+**Videos:** [All-in-one medical device](https://youtu.be/q9Ee2mhGdnA) · [All-in-one health monitor](https://youtu.be/jfgkhnGlEpk)
+
 ---
 
 The firmware is built around a strict rule: every displayed number is either
@@ -41,6 +48,13 @@ on screen to age quietly, and anything without a valid measurement shows `--`.
 | MQ3 | Alcohol vapour sensor |
 
 ### Wiring
+
+<p align="center">
+  <img src="WiringDiagram.png" width="48%" alt="Wiring diagram">
+  <img src="Pinout.png" width="48%" alt="ESP32 pin assignments">
+</p>
+
+A printable version is in [Circuit.pdf](Circuit.pdf).
 
 **Display (SPI)** — set in TFT_eSPI's `User_Setup.h`, not in the sketch:
 
@@ -116,7 +130,8 @@ Each carries its own license: see [Credits](#credits).
 2. Install the three libraries above.
 3. Configure `TFT_eSPI/User_Setup.h` for your panel and the SPI pins listed
    above.
-4. Open `sketch_jan25a.ino`, select your ESP32 board, and upload.
+4. Open `Multi-Vital-device.ino`, select your ESP32 board, and upload. (The Arduino IDE may offer to move
+   it into a folder of the same name; accept, and keep `filters.h` next to it.)
 5. Open the serial monitor at **115200** and type `help`.
 
 `filters.h` must sit in the same folder as the sketch.
@@ -274,11 +289,27 @@ update instead of redrawing the whole strip.
 
 ---
 
+## Enclosure
+
+The five panels of the handheld case are in [`hardware/enclosure`](hardware/enclosure) as STL files, ready to slice.
+
+## Earlier version
+
+The first build (early 2026) used one sketch per sensor on a 3.5-inch screen with USB-C charging.
+Photos are in [`media/v1`](media/v1), and the original code is archived at
+[All-in-one-medical-device](https://github.com/contactmridulhere-commits/All-in-one-medical-device).
+
+<p align="center">
+  <img src="media/v1/v1-front.jpg" width="32%" alt="Version 1 in hand">
+  <img src="media/v1/v1-screen.jpg" width="32%" alt="Version 1 screen">
+  <img src="media/v1/v1-usb-c.jpg" width="32%" alt="Version 1 USB-C charging port">
+</p>
+
 ## Credits
 
 Built by Mridul Sharma and Kaushiki Shukla.
 
-Mridul Did the most of the Hardware build, While Kaushiki Helped in guiding the right tools and parts and helping with what to integrate.
+Mridul did most of the hardware build. Kaushiki guided the choice of tools and parts, and what to integrate.
 
 Third-party libraries, each under its own license:
 
