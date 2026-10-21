@@ -307,9 +307,7 @@ Photos are in [`media/v1`](media/v1), and the original code is archived at
 
 ## Credits
 
-Built by Mridul Sharma and Kaushiki Shukla.
-
-Mridul did most of the hardware build. Kaushiki guided the choice of tools and parts, and what to integrate.
+Built by Mridul Sharma solely.
 
 Third-party libraries, each under its own license:
 
